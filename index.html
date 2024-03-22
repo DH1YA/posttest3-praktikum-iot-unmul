@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+      </style>
+</head>
+<body>
+    <h1>Monitoring Suhu DHT 11 </h1>
+    <table>
+        <tr>
+          <th>Sub Judul 1</th>
+          <th>Sub Judul 2</th>
+          <th>Sub Judul 3</th>
+        </tr>
+        <tr>
+          <td id="c">Teks tambahan 1</td>
+          <td id="f">Teks tambahan 2</td>
+          <td id="k">Teks tambahan 3</td>
+        </tr>
+      </table>
+
+    <script>
+        
+        setInterval(function(){fetch('https://api.thingspeak.com/channels/2477540/fields/1.json?api_key=NGQ6MDQNIWHZAYZL&results=2') // api for the get request
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("c").innerHTML = parseFloat(data.feeds[0].field1) + " °C";
+        document.getElementById("f").innerHTML = parseInt(data.feeds[0].field1) + 273.15 + " °K";
+        document.getElementById("k").innerHTML = ((parseInt(data.feeds[0].field1)*9) /5 +32) + " °F";
+    }
+    // console.log(data.feeds[0].field1)
+    // ()
+    // ()
+    )},100);
+
+
+    // setInterval(function(){fetch('https://api.thingspeak.com/channels/2477540/fields/1.json?api_key=NGQ6MDQNIWHZAYZL&results=2') // api for the get request
+    // .then(response => response.json())
+    // .then(data => 
+    // // console.log(data.feeds[0].field1)
+    // (document.getElementById("abcd").innerHTML = parseInt(data.feeds[0].field1) + 275)
+    // )},1000);
+    </script>
+</body>
+</html>
