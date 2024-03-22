@@ -43,6 +43,12 @@ Perangkat ini dibuat untuk memonitor suhu ruangan dengan 3 lampu LED, 1 piezzo b
 - DHT 11
 - Kabel Micro USB
 
+
+**Skema :**
+
+![alt text](Schema_Posttest_3.png)
+
+
 **Rangkaian :**
 
 ![alt text](Rangkaian.jpg)
